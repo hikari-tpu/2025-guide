@@ -1,0 +1,215 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background: #edc2e7;
+    font-family: "Inter", sans-serif;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* ヘッダー全体 */
+header {
+    background: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    gap: 20px;
+}
+
+/* メニュー */
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s;
+    z-index: 1001;
+}
+
+.menu li a:hover {
+    color: #ff66cc;
+}
+
+/* ハンバーガーメニュー */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+    .menu {
+
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 33.3vw;
+        max-height: 92vh;
+        height: 92vh;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9998;
+        overflow-y: auto;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 10000;
+    }
+}
+
+h2 {
+    margin-top: 80px;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 目次 */
+.tool_index {
+    max-width: 600px;
+    margin: 40px auto;
+    /* 薄い白背景 */
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px 30px;
+}
+
+.tool_index ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 共通の文字スタイル */
+.tool_index li {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* タイトル（目次）だけ常時アンダーライン */
+.tool_index_title {
+    border-bottom: 2px solid #ff66cc;
+    padding-bottom: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+/* リスト項目（リンク） */
+.tool_index a {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+/* ホバー時だけアンダーライン表示 */
+.tool_index a:hover {
+    border-bottom: 2px solid #ff66cc;
+    color: #ff66cc;
+}
+
+/* 画材紹介 */
+.tool_category {
+    scroll-margin-top: 80px;
+    max-width: 900px;
+    /* 中央揃え */
+    margin: 80px auto;
+    /* タイトルと説明だけ左揃えに */
+    text-align: left;
+    padding: 0 20px;
+}
+
+.tool_title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    /* アンダーライン */
+    border-bottom: 2px solid #ff66cc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tool_img_container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.tool_img_container img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+.tool_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ff66cc;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+.tool_img_container:hover .tool_overlay {
+    opacity: 1;
+}
+
+.tool_description {
+    font-size: 16px;
+    margin-bottom: 10px;
+    max-width: 900px;
+    word-break: keep-all;
+}
